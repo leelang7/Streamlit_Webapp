@@ -62,7 +62,7 @@ if canvas.image_data is not None:
     dimensions = io.StringIO(json.dumps({'dims': list(image_tensor.shape)}))
     data = io.BytesIO(bytearray(image_tensor.numpy()))
 
-    r = requests.post('http://localhost:8890/test',
+    r = requests.post('http://localhost:5001/test',
                       files={'metadata': dimensions, 'data' : data})
     print("송신 완료")
     response = json.loads(r.content)
